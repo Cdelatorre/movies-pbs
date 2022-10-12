@@ -1,0 +1,48 @@
+.movie-card {
+  border-radius: 8px;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.75);
+
+  .card-img-top-container {
+    position: relative;
+
+    .card-img-custom {
+      height: 160px;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .action-card-btn {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      bottom: -30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 100%;
+      cursor: pointer;
+
+      i:hover {
+        opacity: 0.6;
+      }
+    }
+
+    .action-card-btn.viewed {
+      right: 5px;
+    }
+    .action-card-btn.delete {
+      right: 60px;
+    }
+    .action-card-btn.edit {
+      right: 115px;
+    }
+  }
+
+  .card-description {
+    font-size: 12px;
+  }
+}
