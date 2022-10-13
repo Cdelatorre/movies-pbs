@@ -1,30 +1,27 @@
 import React, { useRef } from "react";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import useKeyPress from "../../../hooks/useKeypress.ts";
+import { addMovie } from "../../../store/reducers/moviesReducer.ts";
 import Button from "../../misc/button/index.tsx";
 import Input from "../../misc/input/index.tsx";
 import GenreTab from "../genre-tab/index.tsx";
+import { v4 as uuidv4 } from "uuid";
+import {
+  DEFAULT_FORM,
+  ERRORS,
+  IMG_URL,
+  INTRO_KEYCODE,
+} from "../../../constants";
 import "./index.scss";
 
-const DEFAULT_FORM = {
-  title: "",
-  currentGenre: "",
-  genres: [],
-};
-
-const ERRORS = {
-  title: false,
-  genres: false,
-};
-
-const INTRO_KEYCODE = 13;
-
 const MovieForm = () => {
-  const [formState, setFormState] = useState<FormValues>(DEFAULT_FORM);
+  const [formState, setForm] = useState<FormValues>(DEFAULT_FORM);
   const [errors, setErrors] = useState<FormErrors>(ERRORS);
   const ref = useRef<HTMLInputElement>(null);
+  const dispatch = useDispatch();
 
-  useKeyPress((key: number) => {
+  useKeyPress((key: number): void => {
     const { currentGenre, genres } = formState;
 
     const genreAlreadyIncluded = (): boolean => {
@@ -41,14 +38,14 @@ const MovieForm = () => {
       key === INTRO_KEYCODE
     ) {
       if (genreAlreadyIncluded()) {
-        setFormState({
+        setForm({
           ...formState,
           currentGenre: "",
         });
       } else {
-        setFormState((prevState) => ({
+        setForm((prev) => ({
           ...formState,
-          genres: [...genres, prevState.currentGenre.trim()],
+          genres: [...genres, prev.currentGenre.trim()],
           currentGenre: "",
         }));
       }
@@ -62,7 +59,15 @@ const MovieForm = () => {
     const { title, genres } = formState;
 
     if (title && genres.length) {
-      console.log("submit");
+      dispatch(
+        addMovie({
+          id: uuidv4(),
+          title,
+          genres,
+          viewed: false,
+          img: `${IMG_URL}${Math.floor(Math.random() * 200 + 1)}/300/400`,
+        })
+      );
     } else {
       setErrors({
         title: !title && "You must provide a title",
@@ -72,7 +77,7 @@ const MovieForm = () => {
   };
 
   const handleDeleteGenre = (genre: string) => {
-    setFormState({
+    setForm({
       ...formState,
       genres: [...formState.genres.filter((g) => g !== genre)],
     });
@@ -80,11 +85,7 @@ const MovieForm = () => {
 
   const handleOnChange = (e: Event) => {
     const { name, value } = e.target as HTMLInputElement;
-
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
+    setForm({ ...formState, [name]: value });
   };
 
   return (
@@ -101,7 +102,6 @@ const MovieForm = () => {
           id="title-input"
           name="title"
         />
-
         <div className="genders d-flex mb-2 mt-2">
           {formState.genres.map((genre) => {
             return (
@@ -111,7 +111,6 @@ const MovieForm = () => {
             );
           })}
         </div>
-
         <Input
           onFocus={() => setErrors({ ...errors, genres: false })}
           onChange={handleOnChange}

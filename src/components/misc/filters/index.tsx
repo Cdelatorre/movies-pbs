@@ -1,17 +1,22 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   toggleFilter,
   resetFilters,
-} from "../../../reducers/filtersReducer.ts";
+} from "../../../store/reducers/filtersReducer.ts";
 import Button from "../button/index.tsx";
+import SearchBar from "../search-bar/index.tsx";
+import Input from "../input/index.tsx";
 
-const Filters = ({ filters }) => {
-  const activeFilters = useSelector((state) => state.counter.activeFilters);
+const Filters = ({
+  filters,
+  activeFilters,
+}: FiltersComponentProps): JSX.Element => {
   const dispatch = useDispatch();
 
-  const handleAddFilter = (e) => {
-    dispatch(toggleFilter(e.target.value));
+  const handleAddFilter = (e): void => {
+    const { value } = e.target as HTMLInputElement;
+    dispatch(toggleFilter(value));
   };
 
   return (
@@ -21,20 +26,17 @@ const Filters = ({ filters }) => {
         <div className="d-flex text-light flex-row flex-wrap">
           {filters.map((filter) => {
             return (
-              <div
-                key={filter}
-                className="me-2 d-flex align-items-center justify-content-center"
-              >
-                <input
+              <div key={filter}>
+                <Input
                   readOnly
+                  label={filter}
+                  extraClassNames="form-check-input border border-light"
+                  type="checkbox"
                   onClick={handleAddFilter}
                   checked={activeFilters.includes(filter)}
                   value={filter}
-                  type="radio"
                   key={filter}
-                  className="btn me-1"
                 />
-                <h6 className="m-0">{filter}</h6>
               </div>
             );
           })}
@@ -47,6 +49,7 @@ const Filters = ({ filters }) => {
           Reset filters
         </Button>
       </div>
+      <SearchBar />
     </div>
   );
 };

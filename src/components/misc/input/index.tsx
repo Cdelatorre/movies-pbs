@@ -1,32 +1,50 @@
+import c from "classnames";
 import React from "react";
 
 const Input = React.forwardRef<HTMLInputElement, InputComponentProps>(
   (
     {
+      extraClassNames,
+      checked,
+      readOnly,
       type = "text",
       label,
       placeholder,
-      onChange,
-      onFocus,
       value,
       id,
       name,
       error,
+      onChange,
+      onFocus,
       onBlur,
+      onClick,
     },
     ref
-  ) => {
+  ): JSX.Element => {
+    const classNames = c(
+      "form-control",
+      "bg-dark",
+      "text-light",
+      error && "is-invalid",
+      extraClassNames
+    );
+
     return (
-      <div className="input">
-        <label htmlFor={id} className="form-label text-start w-100 text-light">
+      <div className={`input ${type === "checkbox" ? "form-check" : ""}`}>
+        <label
+          htmlFor={id}
+          className={`${
+            type === "checkbox" ? " d-inline ps-2 pe-3" : "form-label w-100"
+          } text-start text-light`}
+        >
           {label}
         </label>
         <input
+          checked={checked}
+          readOnly={readOnly}
           ref={ref}
           type={type}
-          className={`form-control bg-dark text-light ${
-            error ? "is-invalid" : ""
-          }`}
+          className={classNames}
           id={id}
           placeholder={placeholder}
           value={value}
@@ -34,6 +52,7 @@ const Input = React.forwardRef<HTMLInputElement, InputComponentProps>(
           onChange={onChange}
           onBlur={onBlur}
           onFocus={onFocus}
+          onClick={onClick}
         />
         {error && <div className="invalid-feedback text-start">{error}</div>}
       </div>

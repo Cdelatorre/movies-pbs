@@ -2,7 +2,11 @@ import c from "classnames";
 import React from "react";
 import "./index.scss";
 
-const GenreTab = ({ children, onDelete, id }) => {
+const GenreTab = ({
+  children,
+  onDelete,
+  id,
+}: GenreTabComponentProps): JSX.Element => {
   const classNames = c(
     "genre-tab",
     "border",

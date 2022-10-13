@@ -26,17 +26,23 @@
       border-radius: 100%;
       cursor: pointer;
 
-      i:hover {
-        opacity: 0.6;
+      &:hover {
+        background-color: #2c3137 !important;
+
+        i {
+          opacity: 0.6;
+        }
       }
     }
 
     .action-card-btn.viewed {
       right: 5px;
     }
+
     .action-card-btn.delete {
       right: 60px;
     }
+
     .action-card-btn.edit {
       right: 115px;
     }

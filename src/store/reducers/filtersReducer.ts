@@ -1,13 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface FiltersState {
-  value: number;
   activeFilters: string[];
+  search: string;
 }
 
 const initialState: FiltersState = {
-  value: 0,
   activeFilters: [],
+  search: "",
 };
 
 export const filtersSlice = createSlice({
@@ -21,12 +21,14 @@ export const filtersSlice = createSlice({
         ? activeFilters.filter((f) => f !== filter)
         : [...activeFilters, filter];
     },
+    setSearch: (state, action: PayloadAction<string>) => {
+      state.search = action.payload;
+    },
     resetFilters: (state) => {
       state.activeFilters = [];
     },
   },
 });
 
-export const { toggleFilter, resetFilters } = filtersSlice.actions;
-
+export const { toggleFilter, resetFilters, setSearch } = filtersSlice.actions;
 export default filtersSlice.reducer;

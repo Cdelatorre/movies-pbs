@@ -3,16 +3,18 @@ import c from "classnames";
 
 const Button = ({
   action,
+  extraClassNames,
   btnType = "primary",
   size,
   children,
   outline,
   disabled,
-}: ButtonComponentProps) => {
+}: ButtonComponentProps): JSX.Element => {
   const classNames = c(
     "btn",
     `btn btn${outline ? "-outline" : ""}-${btnType}`,
-    `btn-${size}`
+    `btn-${size}`,
+    extraClassNames
   );
 
   return (

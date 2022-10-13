@@ -1,4 +1,7 @@
 type InputComponentProps = {
+  extraClassNames: string;
+  readOnly?: boolean;
+  checked?: boolean;
   type: string;
   label: string;
   placeholder?: string;
@@ -9,6 +12,28 @@ type InputComponentProps = {
   onChange: () => void;
   onBlur?: () => void;
   onFocus?: () => void;
+  onClick?: () => void;
+};
+
+type FiltersComponentProps = {
+  filters: string[];
+  activeFilters: string;
+};
+
+type GenreTabComponentProps = {
+  children: string | JSX.Element;
+  onDelete?: (id: string) => void;
+  id: string;
+};
+
+type ButtonComponentProps = {
+  action: () => void;
+  extraClassNames: string;
+  btnType?: string;
+  size?: string;
+  children: string | JSX.Element;
+  outline?: boolean;
+  disabled?: boolean;
 };
 
 type FormValues = {
@@ -22,11 +47,11 @@ type FormErrors = {
   genres: string | boolean;
 };
 
-type ButtonComponentProps = {
-  action: () => void;
-  btnType?: string;
-  size?: string;
-  children: string | JSX.Element;
-  outline?: boolean;
-  disabled?: boolean;
+type Movie = {
+  id: string;
+  createdAt: string | Date;
+  img: string;
+  title: string;
+  genres: string[];
+  viewed: boolean;
 };
