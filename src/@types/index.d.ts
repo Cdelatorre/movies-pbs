@@ -8,10 +8,22 @@ type InputComponentProps = {
   error?: boolean;
   onChange: () => void;
   onBlur?: () => void;
+  onFocus?: () => void;
+};
+
+type FormValues = {
+  title: string;
+  currentGenre: string;
+  genres: string[];
+};
+
+type FormErrors = {
+  title: string | boolean;
+  genres: string | boolean;
 };
 
 type ButtonComponentProps = {
-  onClick: () => void;
+  action: () => void;
   btnType?: string;
   size?: string;
   children: string | JSX.Element;

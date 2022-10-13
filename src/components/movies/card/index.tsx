@@ -9,7 +9,6 @@ const MovieCard = () => {
   const fetchImage = useCallback(() => getRandomImage(), []);
 
   useEffect(() => {
-    console.log("entro");
     fetchImage()
       .then((res) => setImg(res.url))
       .catch((err) => console.log(err));
@@ -38,9 +37,9 @@ const MovieCard = () => {
           Some quick example text to build on the card title and make up the
           bulk of the card's content.
         </p>
-        <div className="d-flex">
+        <div className="genres d-flex">
           {[1, 1, 1, 1].map((el, i) => {
-            return <GenreTab>genre</GenreTab>;
+            return <GenreTab key={i}>genre</GenreTab>;
           })}
         </div>
       </div>

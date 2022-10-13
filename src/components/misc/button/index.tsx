@@ -2,7 +2,7 @@ import React from "react";
 import c from "classnames";
 
 const Button = ({
-  onClick,
+  action,
   btnType = "primary",
   size,
   children,
@@ -16,7 +16,7 @@ const Button = ({
   );
 
   return (
-    <button disabled={disabled} className={classNames} onClick={onClick}>
+    <button onClick={action} disabled={disabled} className={classNames}>
       {children}
     </button>
   );
