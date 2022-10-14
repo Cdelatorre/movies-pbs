@@ -1,21 +1,15 @@
 import React from "react";
 import c from "classnames";
+import "./index.scss";
 
 const Button = ({
   action,
   extraClassNames,
   btnType = "primary",
-  size,
   children,
-  outline,
   disabled,
 }: ButtonComponentProps): JSX.Element => {
-  const classNames = c(
-    "btn",
-    `btn btn${outline ? "-outline" : ""}-${btnType}`,
-    `btn-${size}`,
-    extraClassNames
-  );
+  const classNames = c("btn", `btn btn-${btnType}`, extraClassNames);
 
   return (
     <button onClick={action} disabled={disabled} className={classNames}>

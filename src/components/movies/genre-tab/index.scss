@@ -1,3 +1,5 @@
+@import "../../../assets/variables.scss";
+
 .genre-tab {
   display: inline-flex;
   align-items: center;
@@ -7,6 +9,7 @@
   border-radius: 4px;
   cursor: pointer;
   position: relative;
+  border: 1px solid $info;
 
   &:hover {
     &.form-genre {
@@ -14,7 +17,7 @@
       border-color: #dc3545 !important;
     }
 
-    background-color: #0dcaf0;
+    background-color: $info;
   }
 
   .genre-delete {

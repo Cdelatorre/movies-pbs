@@ -14,3 +14,5 @@ export const ERRORS = {
 };
 
 export const INTRO_KEYCODE = 13;
+
+export const TIME_OUT = 3000;

@@ -4,6 +4,7 @@ import {
   toggleFilter,
   resetFilters,
 } from "../../../store/reducers/filtersReducer.ts";
+import { setSearch } from "../../../store/reducers/filtersReducer.ts";
 import Button from "../button/index.tsx";
 import SearchBar from "../search-bar/index.tsx";
 import Input from "../input/index.tsx";
@@ -14,6 +15,11 @@ const Filters = ({
 }: FiltersComponentProps): JSX.Element => {
   const dispatch = useDispatch();
 
+  const handleReset = () => {
+    dispatch(setSearch(""));
+    dispatch(resetFilters());
+  };
+
   const handleAddFilter = (e): void => {
     const { value } = e.target as HTMLInputElement;
     dispatch(toggleFilter(value));
@@ -21,33 +27,27 @@ const Filters = ({
 
   return (
     <div className="d-flex flex-column align-items-start">
-      <h3 className="text-light mb-4">Find your movie!</h3>
+      <h2 className="text-light text-start mb-4">Find your movie!</h2>
+      <div className="sub-decoration"></div>
       <div className="d-flex flex-wrap">
-        <div className="d-flex text-light flex-row flex-wrap">
+        <div className="d-flex text-light flex-row flex-wrap w-100">
           {filters.map((filter) => {
             return (
-              <div key={filter}>
-                <Input
-                  readOnly
-                  label={filter}
-                  extraClassNames="form-check-input border border-light"
-                  type="checkbox"
-                  onClick={handleAddFilter}
-                  checked={activeFilters.includes(filter)}
-                  value={filter}
-                  key={filter}
-                />
-              </div>
+              <Input
+                key={filter}
+                readOnly
+                label={filter}
+                type="checkbox"
+                onClick={handleAddFilter}
+                checked={activeFilters.includes(filter)}
+                value={filter}
+              />
             );
           })}
+          <Button action={handleReset}>
+            <i className="fas fa-sync-alt"></i>
+          </Button>
         </div>
-        <Button
-          action={() => dispatch(resetFilters())}
-          size="sm"
-          btnType="secondary"
-        >
-          Reset filters
-        </Button>
       </div>
       <SearchBar />
     </div>

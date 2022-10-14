@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import useKeyPress from "../../../hooks/useKeypress.ts";
+import { setLoading } from "../../../store/reducers/loadingReducer.ts";
 import { addMovie } from "../../../store/reducers/moviesReducer.ts";
 import Button from "../../misc/button/index.tsx";
 import Input from "../../misc/input/index.tsx";
@@ -68,6 +69,8 @@ const MovieForm = () => {
           img: `${IMG_URL}${Math.floor(Math.random() * 200 + 1)}/300/400`,
         })
       );
+      dispatch(setLoading(true));
+      setForm(DEFAULT_FORM);
     } else {
       setErrors({
         title: !title && "You must provide a title",
@@ -89,8 +92,8 @@ const MovieForm = () => {
   };
 
   return (
-    <div className="movie-form-container">
-      <h3 className="movie-form-title">Create a movie</h3>
+    <div className="movie-form-container mt-3">
+      <h2 className="movie-form-title mt-0">Create your movie</h2>
       <form className="movie-form">
         <Input
           onFocus={() => setErrors({ ...errors, title: false })}
@@ -102,7 +105,7 @@ const MovieForm = () => {
           id="title-input"
           name="title"
         />
-        <div className="genders d-flex mb-2 mt-2">
+        <div className="genders d-flex mb-3 mt-3">
           {formState.genres.map((genre) => {
             return (
               <GenreTab id={genre} onDelete={handleDeleteGenre} key={genre}>
@@ -117,14 +120,18 @@ const MovieForm = () => {
           error={errors.genres}
           ref={ref}
           label="Genres"
-          placeholder="Write down some genres for your movie"
+          placeholder="Write down some movie genres"
           value={formState.currentGenre}
           id="title-input"
           name="currentGenre"
         />
       </form>
-      <div className="d-grid mt-4">
-        <Button action={handleSubmit} btnType="success">
+      <div className="mt-4">
+        <Button
+          extraClassNames="w-100 mt-3"
+          action={handleSubmit}
+          btnType="success"
+        >
           Create
         </Button>
       </div>

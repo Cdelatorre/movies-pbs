@@ -30,9 +30,7 @@ type ButtonComponentProps = {
   action: () => void;
   extraClassNames: string;
   btnType?: string;
-  size?: string;
   children: string | JSX.Element;
-  outline?: boolean;
   disabled?: boolean;
 };
 

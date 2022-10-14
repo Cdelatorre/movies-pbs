@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import {
   toggleViewed,
@@ -6,13 +6,25 @@ import {
 } from "../../../store/reducers/moviesReducer.ts";
 import GenreTab from "../genre-tab/index.tsx";
 import "./index.scss";
+import c from "classnames";
+import { setLoading } from "../../../store/reducers/loadingReducer.ts";
 
 const MovieCard = (movie: Movie): JSX.Element => {
   const dispatch = useDispatch();
   const { viewed, id, img, title, genres } = movie;
+  const handleDelete = () => {
+    dispatch(deleteMovie(movie));
+    dispatch(setLoading(true));
+  };
+  const classNames = c(
+    "movie-card",
+    "card",
+    "border-2",
+    viewed ? "border-primary" : "border-dark"
+  );
 
   return (
-    <div id={id} className="movie-card card border-dark">
+    <div id={id} className={classNames}>
       <div className="card-img-top-container">
         <div
           style={{ backgroundImage: `url(${img})` }}
@@ -25,7 +37,7 @@ const MovieCard = (movie: Movie): JSX.Element => {
           <i className={`far fa-eye${!viewed ? "-slash text-warning" : ""}`} />
         </div>
         <div
-          onClick={() => dispatch(deleteMovie(movie))}
+          onClick={handleDelete}
           className="action-card-btn bg-dark delete text-danger"
         >
           <i className="far fa-trash-alt"></i>
