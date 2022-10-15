@@ -28,7 +28,6 @@
   }
 
   &:not(:required) {
-    /* hide "loading..." text */
     font: 0/0 a;
     color: transparent;
     text-shadow: none;

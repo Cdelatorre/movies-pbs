@@ -26,7 +26,7 @@ const MovieForm = () => {
     const { currentGenre, genres } = formState;
 
     const genreAlreadyIncluded = (): boolean => {
-      return genres.some((g) => {
+      return genres.some((g: string) => {
         return (
           g.trim().toLocaleLowerCase() === currentGenre.trim().toLowerCase()
         );
@@ -82,7 +82,7 @@ const MovieForm = () => {
   const handleDeleteGenre = (genre: string) => {
     setForm({
       ...formState,
-      genres: [...formState.genres.filter((g) => g !== genre)],
+      genres: [...formState.genres.filter((g: string) => g !== genre)],
     });
   };
 
@@ -128,8 +128,8 @@ const MovieForm = () => {
       </form>
       <div className="mt-4">
         <Button
-          extraClassNames="w-100 mt-3"
           action={handleSubmit}
+          extraClassNames="w-100 mt-3"
           btnType="success"
         >
           Create

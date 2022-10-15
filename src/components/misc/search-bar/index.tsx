@@ -24,10 +24,13 @@ const SearchBar = (): JSX.Element => {
   }, [searchInput, dispatch]);
 
   return (
-    <div className="search-bar mb-5 mt-4 w-100 d-flex ">
+    <div className="search-bar mb-5 mt-4 w-100 d-flex">
       <Input
         value={searchInput}
-        onChange={(e) => setSearchInput(e.target.value)}
+        onChange={(e: Event) => {
+          const { value } = e.target as HTMLInputElement;
+          setSearchInput(value);
+        }}
         placeholder="Search movie"
         extraClassNames="w-100"
       />

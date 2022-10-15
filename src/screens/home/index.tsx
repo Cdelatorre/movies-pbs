@@ -25,7 +25,7 @@ const Home = () => {
 
     if (activeFilters.length) {
       allMovies = allMovies.filter((mov: Movie) => {
-        return mov.genres.some((gen) => {
+        return mov.genres.some((gen: string) => {
           return filterRegex.test(gen);
         });
       });

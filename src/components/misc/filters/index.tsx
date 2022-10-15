@@ -20,7 +20,7 @@ const Filters = ({
     dispatch(resetFilters());
   };
 
-  const handleAddFilter = (e): void => {
+  const handleAddFilter = (e: Event): void => {
     const { value } = e.target as HTMLInputElement;
     dispatch(toggleFilter(value));
   };
@@ -31,16 +31,16 @@ const Filters = ({
       <div className="sub-decoration"></div>
       <div className="d-flex flex-wrap">
         <div className="d-flex text-light flex-row flex-wrap w-100">
-          {filters.map((filter) => {
+          {filters.map((filter: string) => {
             return (
               <Input
-                key={filter}
                 readOnly
+                key={filter}
                 label={filter}
+                value={filter}
                 type="checkbox"
                 onClick={handleAddFilter}
                 checked={activeFilters.includes(filter)}
-                value={filter}
               />
             );
           })}
