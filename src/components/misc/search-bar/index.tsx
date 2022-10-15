@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../store.ts";
 import { setSearch } from "../../../store/reducers/filtersReducer.ts";
 import { setLoading } from "../../../store/reducers/loadingReducer.ts";
 import Input from "../input/index.tsx";
 import Button from "../button/index.tsx";
+import "./index.scss";
 
 const SearchBar = (): JSX.Element => {
   const dispatch = useDispatch();
@@ -17,6 +18,11 @@ const SearchBar = (): JSX.Element => {
       dispatch(setSearch(searchInput));
     }
   };
+
+  useEffect(() => {
+    if (!searchInput) dispatch(setSearch(searchInput));
+  }, [searchInput, dispatch]);
+
   return (
     <div className="search-bar mb-5 mt-4 w-100 d-flex ">
       <Input

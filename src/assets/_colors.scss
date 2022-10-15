@@ -22,6 +22,18 @@
   border-color: $danger !important;
 }
 
+.bg-secondary {
+  background-color: $secondary;
+}
+
+.text-secondary {
+  color: $secondary;
+}
+
+.border-secondary {
+  border-color: $secondary !important;
+}
+
 .bg-light {
   background-color: $light;
 }
@@ -32,6 +44,18 @@
 
 .border-light {
   border-color: $light;
+}
+
+.bg-warning {
+  background-color: $warning;
+}
+
+.text-warning {
+  color: $warning;
+}
+
+.border-warning {
+  border-color: $warning;
 }
 
 .bg-primary {

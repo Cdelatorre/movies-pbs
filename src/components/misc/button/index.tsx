@@ -13,6 +13,9 @@ const Button = ({
 
   return (
     <button onClick={action} disabled={disabled} className={classNames}>
+      <span className="btn__icon">
+        <span className="btn__icon"></span>
+      </span>
       {children}
     </button>
   );

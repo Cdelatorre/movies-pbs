@@ -43,23 +43,25 @@ const Home = () => {
         <div className="container">
           <Filters activeFilters={activeFilters} filters={FILTERS} />
         </div>
-        <div className="row mb-5">
-          {movies.length
-            ? movies.map((movie, i) => {
-                if (loading) return <MovieSkeleton key={movie.id} />;
-                return (
-                  <div key={movie.id} className="col-lg-3 col-sm-6">
-                    <MovieCard {...movie} />;
+        <div className="container">
+          <div className="row mb-5">
+            {movies.length
+              ? movies.map((movie, i) => {
+                  if (loading) return <MovieSkeleton key={movie.id} />;
+                  return (
+                    <div key={movie.id} className="col-lg-3 col-sm-6 col-xs-12">
+                      <MovieCard {...movie} />;
+                    </div>
+                  );
+                })
+              : !loading && (
+                  <div className="container">
+                    <h4 className="text-light mb-5 p-5 border rounded border-light">
+                      Vaya, no hemos encontrado películas...
+                    </h4>
                   </div>
-                );
-              })
-            : !loading && (
-                <div className="container">
-                  <h4 className="text-light mb-5 p-5 border rounded border-light">
-                    Vaya, no hemos encontrado películas...
-                  </h4>
-                </div>
-              )}
+                )}
+          </div>
         </div>
       </div>
     </div>

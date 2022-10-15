@@ -1,13 +1,13 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import c from "classnames";
 import {
   toggleViewed,
   deleteMovie,
 } from "../../../store/reducers/moviesReducer.ts";
+import { setLoading } from "../../../store/reducers/loadingReducer.ts";
 import GenreTab from "../genre-tab/index.tsx";
 import "./index.scss";
-import c from "classnames";
-import { setLoading } from "../../../store/reducers/loadingReducer.ts";
 
 const MovieCard = (movie: Movie): JSX.Element => {
   const dispatch = useDispatch();
@@ -47,7 +47,7 @@ const MovieCard = (movie: Movie): JSX.Element => {
         </div>
       </div>
       <div className="card-body bg-dark text-light pt-4">
-        <h5 className="card-title text-start">{title}</h5>
+        <h3 className="card-title text-start mt-2">{title}</h3>
         <p className="card-description text-start">
           Some quick example text to build on the card title and make up thebulk
           of the card's content.
