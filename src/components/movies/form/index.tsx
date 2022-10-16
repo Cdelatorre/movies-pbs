@@ -1,12 +1,11 @@
-import React, { useRef } from "react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
-import useKeyPress from "../../../hooks/useKeypress.ts";
-import { setLoading } from "../../../store/reducers/loadingReducer.ts";
-import { addMovie } from "../../../store/reducers/moviesReducer.ts";
-import Button from "../../misc/button/index.tsx";
-import Input from "../../misc/input/index.tsx";
-import GenreTab from "../genre-tab/index.tsx";
+import useKeyPress from "../../../hooks/useKeypress";
+import { setLoading } from "../../../store/reducers/loadingReducer";
+import { addMovie } from "../../../store/reducers/moviesReducer";
+import Button from "../../misc/button";
+import Input from "../../misc/input";
+import GenreTab from "../genre-tab";
 import { v4 as uuidv4 } from "uuid";
 import {
   DEFAULT_FORM,
@@ -55,7 +54,7 @@ const MovieForm = () => {
     }
   });
 
-  const handleSubmit = (e: Event) => {
+  const handleSubmit = (e: React.FormEvent<HTMLInputElement>) => {
     e.preventDefault();
     const { title, genres } = formState;
 
@@ -73,8 +72,8 @@ const MovieForm = () => {
       setForm(DEFAULT_FORM);
     } else {
       setErrors({
-        title: !title && "You must provide a title",
-        genres: !genres.length && "You must include at least one gender",
+        title: !title ? "You must provide a title" : false,
+        genres: !genres.length ? "You must include at least one gender" : false,
       });
     }
   };
@@ -86,7 +85,7 @@ const MovieForm = () => {
     });
   };
 
-  const handleOnChange = (e: Event) => {
+  const handleOnChange = (e: React.FormEvent<HTMLInputElement>) => {
     const { name, value } = e.target as HTMLInputElement;
     setForm({ ...formState, [name]: value });
   };

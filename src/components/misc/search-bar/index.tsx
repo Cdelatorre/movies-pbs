@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../../store.ts";
-import { setSearch } from "../../../store/reducers/filtersReducer.ts";
-import { setLoading } from "../../../store/reducers/loadingReducer.ts";
-import Input from "../input/index.tsx";
-import Button from "../button/index.tsx";
+import { RootState } from "../../../store";
+import { setSearch } from "../../../store/reducers/filtersReducer";
+import { setLoading } from "../../../store/reducers/loadingReducer";
+import Input from "../input";
+import Button from "../button";
 import "./index.scss";
 
 const SearchBar = (): JSX.Element => {
@@ -26,6 +26,8 @@ const SearchBar = (): JSX.Element => {
   return (
     <div className="search-bar mb-5 mt-4 w-100 d-flex">
       <Input
+        type="text"
+        name="search"
         value={searchInput}
         onChange={(e: Event) => {
           const { value } = e.target as HTMLInputElement;
@@ -34,12 +36,7 @@ const SearchBar = (): JSX.Element => {
         placeholder="Search movie"
         extraClassNames="w-100"
       />
-      <Button
-        size="sm"
-        btnType="success"
-        extraClassNames="ms-3"
-        action={handleSearch}
-      >
+      <Button btnType="success" extraClassNames="ms-3" action={handleSearch}>
         Search
       </Button>
     </div>

@@ -3,11 +3,11 @@ import { useDispatch } from "react-redux";
 import {
   toggleFilter,
   resetFilters,
-} from "../../../store/reducers/filtersReducer.ts";
-import { setSearch } from "../../../store/reducers/filtersReducer.ts";
-import Button from "../button/index.tsx";
-import SearchBar from "../search-bar/index.tsx";
-import Input from "../input/index.tsx";
+} from "../../../store/reducers/filtersReducer";
+import { setSearch } from "../../../store/reducers/filtersReducer";
+import Button from "../button";
+import SearchBar from "../search-bar";
+import Input from "../input";
 
 const Filters = ({
   filters,
@@ -20,7 +20,7 @@ const Filters = ({
     dispatch(resetFilters());
   };
 
-  const handleAddFilter = (e: Event): void => {
+  const handleAddFilter = (e: React.FormEvent<HTMLInputElement>): void => {
     const { value } = e.target as HTMLInputElement;
     dispatch(toggleFilter(value));
   };
@@ -31,10 +31,11 @@ const Filters = ({
       <div className="sub-decoration"></div>
       <div className="d-flex flex-wrap">
         <div className="d-flex text-light flex-row flex-wrap w-100">
-          {filters.map((filter: string) => {
+          {filters?.map((filter: string) => {
             return (
               <Input
                 readOnly
+                name={filter}
                 key={filter}
                 label={filter}
                 value={filter}

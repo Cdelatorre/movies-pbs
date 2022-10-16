@@ -1,17 +1,22 @@
-import React from "react";
 import { useDispatch } from "react-redux";
 import c from "classnames";
 import {
   toggleViewed,
   deleteMovie,
-} from "../../../store/reducers/moviesReducer.ts";
-import { setLoading } from "../../../store/reducers/loadingReducer.ts";
-import GenreTab from "../genre-tab/index.tsx";
+  updateMovie,
+} from "../../../store/reducers/moviesReducer";
+import { setLoading } from "../../../store/reducers/loadingReducer";
+import GenreTab from "../genre-tab";
 import "./index.scss";
+import { useState } from "react";
+import Input from "../../misc/input";
 
 const MovieCard = (movie: Movie): JSX.Element => {
-  const dispatch = useDispatch();
   const { viewed, id, img, title, genres } = movie;
+
+  const [edit, toggleEdit] = useState(false);
+  const [editedTitle, setEditedTitle] = useState(movie.title);
+  const dispatch = useDispatch();
   const handleDelete = () => {
     dispatch(deleteMovie(movie));
     dispatch(setLoading(true));
@@ -22,6 +27,16 @@ const MovieCard = (movie: Movie): JSX.Element => {
     "border-2",
     viewed ? "border-primary" : "border-dark"
   );
+
+  const onToggleEdit = () => {
+    if (edit) dispatch(updateMovie({ movie, editedTitle }));
+    toggleEdit(!edit);
+  };
+
+  const handleOnChange = (e: React.FormEvent<HTMLInputElement>) => {
+    const { value } = e.target as HTMLInputElement;
+    setEditedTitle(value);
+  };
 
   return (
     <div id={id} className={classNames}>
@@ -42,19 +57,38 @@ const MovieCard = (movie: Movie): JSX.Element => {
         >
           <i className="far fa-trash-alt"></i>
         </div>
-        <div className="action-card-btn bg-dark edit text-secondary">
-          <i className="far fa-edit"></i>
+        <div
+          onClick={onToggleEdit}
+          className="action-card-btn bg-dark edit text-secondary"
+        >
+          {edit ? (
+            <i className="fas fa-check-circle text-success-light edit-icon"></i>
+          ) : (
+            <i className="far fa-edit"></i>
+          )}
         </div>
       </div>
       <div className="card-body bg-dark text-light pt-4">
-        <h3 className="card-title text-start mt-2">{title}</h3>
+        {!edit ? (
+          <h3 className="card-title text-start mt-2">{title}</h3>
+        ) : (
+          <Input
+            label="Editing title"
+            name="editedTitle"
+            type="text"
+            value={editedTitle}
+            onChange={handleOnChange}
+          />
+        )}
         <p className="card-description text-start">
           Some quick example text to build on the card title and make up thebulk
           of the card's content.
         </p>
         <div className="genres d-flex">
           {genres.map((gen) => (
-            <GenreTab key={gen}>{gen}</GenreTab>
+            <GenreTab id={gen} key={gen}>
+              {gen}
+            </GenreTab>
           ))}
         </div>
       </div>

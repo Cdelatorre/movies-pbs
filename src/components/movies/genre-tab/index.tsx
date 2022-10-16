@@ -1,6 +1,6 @@
 import c from "classnames";
-import React from "react";
 import "./index.scss";
+import { NavLink } from "react-router-dom";
 
 const GenreTab = ({
   children,
@@ -15,15 +15,20 @@ const GenreTab = ({
     onDelete && "form-genre"
   );
 
-  return (
-    <div className={classNames} onClick={() => onDelete && onDelete(id)}>
-      {onDelete && (
+  if (onDelete)
+    return (
+      <div className={classNames} onClick={() => onDelete(id)}>
         <div className="genre-delete">
           <i className="fas fa-times-circle"></i>
         </div>
-      )}
+        <span>{children}</span>
+      </div>
+    );
+
+  return (
+    <NavLink to={`/?genre=${id}`} className={classNames}>
       <span>{children}</span>
-    </div>
+    </NavLink>
   );
 };
 

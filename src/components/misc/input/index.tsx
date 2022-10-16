@@ -1,5 +1,5 @@
-import c from "classnames";
 import React from "react";
+import c from "classnames";
 import "./index.scss";
 
 const Input = React.forwardRef<HTMLInputElement, InputComponentProps>(
@@ -24,6 +24,7 @@ const Input = React.forwardRef<HTMLInputElement, InputComponentProps>(
   ): JSX.Element => {
     const classNames = c(
       "form-control",
+      `form-${type}`,
       "bg-dark",
       "text-light",
       error && "border-danger",

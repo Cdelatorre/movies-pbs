@@ -1,17 +1,20 @@
-import React from "react";
 import { useSelector } from "react-redux";
-import Filters from "../../components/misc/filters/index.tsx";
-import MovieSkeleton from "../../components/misc/skeletons/movie/index.tsx";
-import MovieCard from "../../components/movies/card/index.tsx";
-import MovieForm from "../../components/movies/form/index.tsx";
+import { Navigate, useSearchParams } from "react-router-dom";
+import Filters from "../../components/misc/filters";
+import MovieSkeleton from "../../components/misc/skeletons/movie";
+import MovieCard from "../../components/movies/card";
+import MovieForm from "../../components/movies/form";
 import { FILTERS } from "../../constants";
-import { RootState } from "../../store.ts";
+import { RootState } from "../../store";
 
 const Home = () => {
   const { activeFilters, search } = useSelector((s: RootState) => s.filters);
   const loading = useSelector((s: RootState) => s.loading.value);
-  const filterRegex = new RegExp(activeFilters.join("|"), "i");
+  const [searchParams] = useSearchParams();
+  const genre = searchParams.get("genre");
+
   const searchRegex = new RegExp(search, "i");
+  const filterRegex = new RegExp(activeFilters.join("|"), "i");
 
   const movies = useSelector((state: RootState) => {
     let allMovies = [
@@ -24,15 +27,15 @@ const Home = () => {
     }
 
     if (activeFilters.length) {
-      allMovies = allMovies.filter((mov: Movie) => {
-        return mov.genres.some((gen: string) => {
-          return filterRegex.test(gen);
-        });
-      });
+      allMovies = allMovies.filter((mov: Movie) =>
+        mov.genres.some((gen: string) => filterRegex.test(gen))
+      );
     }
 
     return allMovies;
   });
+
+  if (genre) return <Navigate to={`/detail?genre=${genre}`} replace={true} />;
 
   return (
     <div>
@@ -49,7 +52,10 @@ const Home = () => {
               ? movies.map((movie, i) => {
                   if (loading) return <MovieSkeleton key={movie.id} />;
                   return (
-                    <div key={movie.id} className="col-lg-3 col-sm-6 col-xs-12">
+                    <div
+                      key={movie.id}
+                      className="col-lg-3 col-md-6 col-sm-6 col-xs-12"
+                    >
                       <MovieCard {...movie} />;
                     </div>
                   );

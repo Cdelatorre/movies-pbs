@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
-import filtersReducer from "./reducers/filtersReducer.ts";
-import loadingReducer from "./reducers/loadingReducer.ts";
-import moviesReducer from "./reducers/moviesReducer.ts";
+import filtersReducer from "./reducers/filtersReducer";
+import loadingReducer from "./reducers/loadingReducer";
+import moviesReducer from "./reducers/moviesReducer";
 
 export const store = configureStore({
   reducer: {

@@ -1,23 +1,26 @@
 type InputComponentProps = {
-  extraClassNames: string;
+  extraClassNames?: string;
   readOnly?: boolean;
   checked?: boolean;
-  type: string;
-  label: string;
+  type?: string;
+  label?: string;
   placeholder?: string;
   value?: string | number;
   id?: string;
   name: string;
-  error?: boolean;
-  onChange: () => void;
-  onBlur?: () => void;
-  onFocus?: () => void;
-  onClick?: () => void;
+  error?: string | boolean;
+  onChange?: (e) => void;
+  onBlur?: (e) => void;
+  onFocus?: (e) => void;
+  onClick?: (e) => void;
 };
 
-type FiltersComponentProps = {
-  filters: string[];
-  activeFilters: string;
+type ButtonComponentProps = {
+  action: (e) => void;
+  extraClassNames?: string;
+  btnType?: string;
+  children: string | JSX.Element;
+  disabled?: boolean;
 };
 
 type GenreTabComponentProps = {
@@ -26,12 +29,22 @@ type GenreTabComponentProps = {
   id: string;
 };
 
-type ButtonComponentProps = {
-  action: () => void;
-  extraClassNames: string;
-  btnType?: string;
-  children: string | JSX.Element;
-  disabled?: boolean;
+type FiltersComponentProps = {
+  filters: string[];
+  activeFilters: string[];
+};
+
+type DetailScreenProps = {
+  genre?: string | null;
+};
+
+type Movie = {
+  id: string;
+  createdAt?: string | Date;
+  img: string;
+  title: string;
+  genres: string[];
+  viewed: boolean;
 };
 
 type FormValues = {
@@ -43,13 +56,4 @@ type FormValues = {
 type FormErrors = {
   title: string | boolean;
   genres: string | boolean;
-};
-
-type Movie = {
-  id: string;
-  createdAt: string | Date;
-  img: string;
-  title: string;
-  genres: string[];
-  viewed: boolean;
 };

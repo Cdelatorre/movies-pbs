@@ -34,6 +34,30 @@
   border-color: $secondary !important;
 }
 
+.bg-success-light {
+  background-color: $success-light;
+}
+
+.bg-success-light {
+  background-color: $success-light;
+}
+
+.bg-success-light:hover {
+  background-color: $success-light-hover;
+}
+
+.text-success-light {
+  color: $success-light;
+}
+
+.text-success-light:hover {
+  color: $success-light-hover;
+}
+
+.border-success-light {
+  border-color: $success-light !important;
+}
+
 .bg-light {
   background-color: $light;
 }
