@@ -14,13 +14,9 @@ Some images of desktop and mobile images
 
 ![Desktop view 2](./public/img/desktop-2.gif "Desktop view 2")
 
-##### - Mobile version flow 1/2
+##### - Mobile version flow
 
-![Mobile view 1](./public/img/mobile-1.gif=250x "Mobile view 1")
-
-##### - Mobile version flow 2/2
-
-![Mobile view 2](./public/img/mobile-2.gif=250x "Mobile view 2")
+<img alt="Mobile view" src="./public/img/mobile-1.gif" data-canonical-src="./public/img/mobile-1.gif" width="300" />
 
 ### Scripts
 
@@ -37,6 +33,11 @@ movies-pbs
 ├─ package.json
 ├─ public
 │  ├─ favicon.ico
+│  ├─ img
+│  │  ├─ desktop-1.gif
+│  │  ├─ desktop-2.gif
+│  │  ├─ mobile-1.gif
+│  │  └─ mobile-2.gif
 │  ├─ index.html
 │  ├─ logo192.png
 │  ├─ logo512.png
@@ -45,7 +46,6 @@ movies-pbs
 ├─ src
 │  ├─ @types
 │  │  └─ index.d.ts
-│  ├─ App.css
 │  ├─ App.tsx
 │  ├─ _test
 │  │  ├─ App.test.jsx
@@ -67,10 +67,12 @@ movies-pbs
 │  │  │  ├─ Card.test.tsx
 │  │  │  ├─ Form.test.tsx
 │  │  │  ├─ GenreTab.test.tsx
+│  │  │  ├─ MovieList.test.tsx
 │  │  │  └─ __snapshots__
 │  │  │     ├─ Card.test.tsx.snap
 │  │  │     ├─ Form.test.tsx.snap
-│  │  │     └─ GenreTab.test.tsx.snap
+│  │  │     ├─ GenreTab.test.tsx.snap
+│  │  │     └─ MovieList.test.tsx.snap
 │  │  ├─ screens
 │  │  │  ├─ Detail.test.tsx
 │  │  │  ├─ Home.test.tsx
@@ -116,8 +118,10 @@ movies-pbs
 │  │     ├─ form
 │  │     │  ├─ index.scss
 │  │     │  └─ index.tsx
-│  │     └─ genre-tab
-│  │        ├─ index.scss
+│  │     ├─ genre-tab
+│  │     │  ├─ index.scss
+│  │     │  └─ index.tsx
+│  │     └─ list
 │  │        └─ index.tsx
 │  ├─ constants.js
 │  ├─ hooks
@@ -141,7 +145,9 @@ movies-pbs
 │        ├─ filtersReducer.ts
 │        ├─ loadingReducer.ts
 │        └─ moviesReducer.ts
-└─ tsconfig.json
+├─ tsconfig.json
+└─ tsconfig.spec.json
+
 ```
 
 This project was created with **create-react-app** template, based on the following requirements:
