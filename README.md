@@ -4,6 +4,8 @@ Movie app is a project made with** React** framework which represents a simple M
 
 ##### Images
 
+Some images of desktop and mobile images
+
 ###### - Desktop version flow 1/2
 
 ![Alt text](./public/img/desktop-1.gif "Desktop view 1")
