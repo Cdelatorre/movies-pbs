@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
-import MovieCard from "../../components/movies/card";
 import { RootState } from "../../store";
+import MovieList from "../../components/movies/list";
 
-const Detail = () => {
+const Detail = (): JSX.Element => {
   const [searchParams] = useSearchParams();
   const genre = searchParams.get("genre");
 
@@ -22,25 +22,8 @@ const Detail = () => {
 
   return (
     <div data-testid="detail-component" className="container">
-      <div className="row mt-5">
-        {movies.length ? (
-          movies.map((movie, i) => {
-            return (
-              <div
-                key={movie.id}
-                className="col-lg-3 col-md-6 col-sm-6 col-xs-12"
-              >
-                <MovieCard {...movie} />;
-              </div>
-            );
-          })
-        ) : (
-          <div className="container">
-            <h4 className="text-light mb-5 p-5 border rounded border-light">
-              Vaya, no hemos encontrado películas...
-            </h4>
-          </div>
-        )}
+      <div className="mt-5">
+        <MovieList movies={movies} />
       </div>
     </div>
   );

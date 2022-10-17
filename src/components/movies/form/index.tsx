@@ -15,7 +15,7 @@ import {
 } from "../../../constants";
 import "./index.scss";
 
-const MovieForm = () => {
+const MovieForm = (): JSX.Element => {
   const [formState, setForm] = useState<FormValues>(DEFAULT_FORM);
   const [errors, setErrors] = useState<FormErrors>(ERRORS);
   const ref = useRef<HTMLInputElement>(null);

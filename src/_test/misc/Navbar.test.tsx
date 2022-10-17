@@ -32,7 +32,7 @@ describe("Renders Navbar component correctly", () => {
     expect(navbar).toMatchSnapshot();
   });
 
-  test("Add history url", () => {
+  test("Adds history url on click", () => {
     const history = createMemoryHistory();
 
     renderWithRouter(<NavBar />, history);

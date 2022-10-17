@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders MovieList component correctly Renders default MovieList and each component correctly 1`] = `
+<div
+  class="row mb-5"
+  data-testid="movie-list"
+>
+  <div
+    class="container"
+  >
+    <h4
+      class="text-light mb-5 p-5 border rounded border-light"
+    >
+      Vaya, no hemos encontrado películas...
+    </h4>
+  </div>
+</div>
+`;

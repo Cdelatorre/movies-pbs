@@ -6,16 +6,21 @@ exports[`Renders Detail page correctly with empty list on movies store data Rend
   data-testid="detail-component"
 >
   <div
-    class="row mt-5"
+    class="mt-5"
   >
     <div
-      class="container"
+      class="row mb-5"
+      data-testid="movie-list"
     >
-      <h4
-        class="text-light mb-5 p-5 border rounded border-light"
+      <div
+        class="container"
       >
-        Vaya, no hemos encontrado películas...
-      </h4>
+        <h4
+          class="text-light mb-5 p-5 border rounded border-light"
+        >
+          Vaya, no hemos encontrado películas...
+        </h4>
+      </div>
     </div>
   </div>
 </div>

@@ -1,15 +1,13 @@
 import { useSelector } from "react-redux";
 import { Navigate, useSearchParams } from "react-router-dom";
 import Filters from "../../components/misc/filters";
-import MovieSkeleton from "../../components/misc/skeletons/movie";
-import MovieCard from "../../components/movies/card";
 import MovieForm from "../../components/movies/form";
+import MovieList from "../../components/movies/list";
 import { FILTERS } from "../../constants";
 import { RootState } from "../../store";
 
-const Home = () => {
+const Home = (): JSX.Element => {
   const { activeFilters, search } = useSelector((s: RootState) => s.filters);
-  const loading = useSelector((s: RootState) => s.loading.value);
   const [searchParams] = useSearchParams();
   const genre = searchParams.get("genre");
 
@@ -47,28 +45,7 @@ const Home = () => {
           <Filters activeFilters={activeFilters} filters={FILTERS} />
         </div>
         <div data-testid="movies-list" className="container movie-list">
-          <div className="row mb-5">
-            {movies.length
-              ? movies.map((movie, i) => {
-                  if (loading)
-                    return <MovieSkeleton id={movie.id} key={movie.id} />;
-                  return (
-                    <div
-                      key={movie.id}
-                      className="col-lg-3 col-md-6 col-sm-6 col-xs-12"
-                    >
-                      <MovieCard {...movie} />;
-                    </div>
-                  );
-                })
-              : !loading && (
-                  <div className="container">
-                    <h4 className="text-light mb-5 p-5 border rounded border-light">
-                      Vaya, no hemos encontrado películas...
-                    </h4>
-                  </div>
-                )}
-          </div>
+          <MovieList movies={movies} />
         </div>
       </div>
     </div>

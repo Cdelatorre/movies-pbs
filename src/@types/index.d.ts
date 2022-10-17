@@ -15,6 +15,10 @@ type InputComponentProps = {
   onClick?: (e) => void;
 };
 
+type MovieListComponentProps = {
+  movies: Movie[];
+};
+
 type ButtonComponentProps = {
   id: string;
   action: (e) => void;

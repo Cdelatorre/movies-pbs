@@ -60,7 +60,7 @@ export const activeFiltersData = {
 };
 
 export const activeLoadingData = {
-  value: false,
+  value: true,
 };
 
 export const emptyStoreData = {

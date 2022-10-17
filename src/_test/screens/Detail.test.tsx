@@ -10,6 +10,7 @@ describe("Renders Detail page correctly with empty list on movies store data", (
     const detailScreen = screen.getByTestId("detail-component");
 
     expect(detailScreen).toBeInTheDocument();
+
     expect(
       screen.getByRole("heading", {
         name: "Vaya, no hemos encontrado películas...",

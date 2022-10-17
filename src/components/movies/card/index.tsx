@@ -7,9 +7,9 @@ import {
 } from "../../../store/reducers/moviesReducer";
 import { setLoading } from "../../../store/reducers/loadingReducer";
 import GenreTab from "../genre-tab";
-import "./index.scss";
 import { useState } from "react";
 import Input from "../../misc/input";
+import "./index.scss";
 
 const MovieCard = (movie: Movie): JSX.Element => {
   const { viewed, id, img, title, genres } = movie;

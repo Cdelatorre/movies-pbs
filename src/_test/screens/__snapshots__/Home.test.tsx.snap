@@ -199,6 +199,7 @@ exports[`Renders Home page correctly Renders Each component correctly 1`] = `
     >
       <div
         class="row mb-5"
+        data-testid="movie-list"
       >
         <div
           class="container"

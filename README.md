@@ -14,6 +14,14 @@ Some images of desktop and mobile images
 
 ![Alt text](./public/img/desktop-2.gif "Desktop view 2")
 
+##### - Mobile version flow 1/2
+
+![Alt text](./public/img/mobile-1.gif "Desktop view 1")
+
+##### - Mobile version flow 2/2
+
+![Alt text](./public/img/mobile-2.gif "Desktop view 2")
+
 ### Scripts
 
 1. To run aplication in local enviroment execute `npm run start`
@@ -138,6 +146,26 @@ movies-pbs
 
 This project was created with **create-react-app** template, based on the following requirements:
 
-### Components
+#### Components and structure
 
-### Screens
+- Redux to implement state handling.
+- Form with title and genres input yo create new movie.
+- Movie card that shows:
+  i. Checkbox that shows if movie is watched or not.
+  ii. Movie name.
+  iii. Genres.
+  iv. Delete button.
+  v. Action buttons -> viewed state | delete movie | edit title.
+
+- Filters checkboxes with Horror, Romance, Comedy and a reset button.
+- Searchbar as an input above the list and below the radio buttons where user can search the
+  movies based on their name.
+- Loader when adding a movie or deleting a movie or searching for a movie.
+  The delay should be 3 seconds.
+- Routing management that handles routes like "/?genre=romance", that redirects to a new page which
+  showing the loader for 3 seconds and then only movies which have that genre.
+
+#### Testing
+
+- Testing with react-testing-library, async tests and Jest.
+- All tests include between 2 - 4 steps and cases depending on complexity of the component.

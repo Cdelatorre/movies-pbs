@@ -1,6 +1,3 @@
-/* eslint-disable testing-library/no-node-access */
-/* eslint-disable testing-library/no-container */
-
 import { cleanup, fireEvent, screen } from "@testing-library/react";
 import { TIME_OUT } from "../constants";
 import { customStoreData } from "./utils/mocks/mock";

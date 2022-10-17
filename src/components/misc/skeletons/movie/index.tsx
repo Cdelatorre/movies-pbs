@@ -2,11 +2,11 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import "./index.scss";
 
-const MovieSkeleton = ({ id }: { id: string }) => {
+const MovieSkeleton = ({ id }: { id: string }): JSX.Element => {
   return (
     <div
       data-testid={`movie-skeleton-${id}`}
-      className="movie-skeleton col-lg-3 col-sm-6"
+      className="movie-skeleton col-xl-3 col-lg-3 col-sm-6"
     >
       <Skeleton
         className="card mb-3"
