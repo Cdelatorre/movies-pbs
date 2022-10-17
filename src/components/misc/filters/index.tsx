@@ -16,6 +16,7 @@ const Filters = ({
   const dispatch = useDispatch();
 
   const handleReset = () => {
+    console.log("entro");
     dispatch(setSearch(""));
     dispatch(resetFilters());
   };
@@ -26,7 +27,10 @@ const Filters = ({
   };
 
   return (
-    <div className="d-flex flex-column align-items-start">
+    <div
+      data-testid="filters-component"
+      className="filters-container d-flex flex-column align-items-start"
+    >
       <h2 className="text-light text-start mb-4">Find your movie!</h2>
       <div className="sub-decoration"></div>
       <div className="d-flex flex-wrap">
@@ -35,6 +39,7 @@ const Filters = ({
             return (
               <Input
                 readOnly
+                id={filter}
                 name={filter}
                 key={filter}
                 label={filter}
@@ -45,7 +50,7 @@ const Filters = ({
               />
             );
           })}
-          <Button action={handleReset}>
+          <Button id="reset-filters-btn" action={handleReset}>
             <i className="fas fa-sync-alt"></i>
           </Button>
         </div>

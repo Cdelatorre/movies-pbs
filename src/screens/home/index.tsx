@@ -38,7 +38,7 @@ const Home = () => {
   if (genre) return <Navigate to={`/detail?genre=${genre}`} replace={true} />;
 
   return (
-    <div>
+    <div data-testid="home-component">
       <div className="mt-5">
         <div className="container d-flex justify-content-center">
           <MovieForm />
@@ -46,11 +46,12 @@ const Home = () => {
         <div className="container">
           <Filters activeFilters={activeFilters} filters={FILTERS} />
         </div>
-        <div className="container">
+        <div data-testid="movies-list" className="container movie-list">
           <div className="row mb-5">
             {movies.length
               ? movies.map((movie, i) => {
-                  if (loading) return <MovieSkeleton key={movie.id} />;
+                  if (loading)
+                    return <MovieSkeleton id={movie.id} key={movie.id} />;
                   return (
                     <div
                       key={movie.id}

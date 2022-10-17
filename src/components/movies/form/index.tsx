@@ -37,6 +37,7 @@ const MovieForm = () => {
       document.activeElement === ref.current &&
       key === INTRO_KEYCODE
     ) {
+      console.log("entro");
       if (genreAlreadyIncluded()) {
         setForm({
           ...formState,
@@ -91,9 +92,9 @@ const MovieForm = () => {
   };
 
   return (
-    <div className="movie-form-container mt-3">
+    <div data-testid="form-component" className="movie-form-container mt-3">
       <h2 className="movie-form-title mt-0">Create your movie</h2>
-      <form className="movie-form">
+      <form data-testid="movie-form" className="movie-form">
         <Input
           onFocus={() => setErrors({ ...errors, title: false })}
           onChange={handleOnChange}
@@ -127,6 +128,7 @@ const MovieForm = () => {
       </form>
       <div className="mt-4">
         <Button
+          id="submit-form-btn"
           action={handleSubmit}
           extraClassNames="w-100 mt-3"
           btnType="success"

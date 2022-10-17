@@ -16,6 +16,7 @@ type InputComponentProps = {
 };
 
 type ButtonComponentProps = {
+  id: string;
   action: (e) => void;
   extraClassNames?: string;
   btnType?: string;

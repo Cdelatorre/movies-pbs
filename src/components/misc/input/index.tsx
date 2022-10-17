@@ -44,6 +44,7 @@ const Input = React.forwardRef<HTMLInputElement, InputComponentProps>(
           </label>
         )}
         <input
+          data-testid={`input-${type}-${name}`}
           checked={checked}
           readOnly={readOnly}
           ref={ref}

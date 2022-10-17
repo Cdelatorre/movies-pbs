@@ -24,7 +24,7 @@ const SearchBar = (): JSX.Element => {
   }, [searchInput, dispatch]);
 
   return (
-    <div className="search-bar mb-5 mt-4 w-100 d-flex">
+    <div data-testid="search-bar" className="search-bar mb-5 mt-4 w-100 d-flex">
       <Input
         type="text"
         name="search"
@@ -36,7 +36,12 @@ const SearchBar = (): JSX.Element => {
         placeholder="Search movie"
         extraClassNames="w-100"
       />
-      <Button btnType="success" extraClassNames="ms-3" action={handleSearch}>
+      <Button
+        id="search-btn"
+        btnType="success"
+        extraClassNames="ms-3"
+        action={handleSearch}
+      >
         Search
       </Button>
     </div>

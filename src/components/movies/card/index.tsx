@@ -25,7 +25,7 @@ const MovieCard = (movie: Movie): JSX.Element => {
     "movie-card",
     "card",
     "border-2",
-    viewed ? "border-primary" : "border-dark"
+    viewed ? "border-primary viewed-card" : "border-dark unViewed-card"
   );
 
   const onToggleEdit = () => {
@@ -39,25 +39,28 @@ const MovieCard = (movie: Movie): JSX.Element => {
   };
 
   return (
-    <div id={id} className={classNames}>
+    <div data-testid={`movie-card-${id}`} id={id} className={classNames}>
       <div className="card-img-top-container">
         <div
           style={{ backgroundImage: `url(${img})` }}
           className="card-img-custom"
         />
         <div
+          data-testid={`toggle-viewed-btn-${id}`}
           onClick={() => dispatch(toggleViewed(movie))}
           className="action-card-btn bg-dark viewed text-primary"
         >
           <i className={`far fa-eye${!viewed ? "-slash text-warning" : ""}`} />
         </div>
         <div
+          data-testid={`delete-movie-btn-${id}`}
           onClick={handleDelete}
           className="action-card-btn bg-dark delete text-danger"
         >
           <i className="far fa-trash-alt"></i>
         </div>
         <div
+          data-testid={`edit-movie-btn-${id}`}
           onClick={onToggleEdit}
           className="action-card-btn bg-dark edit text-secondary"
         >

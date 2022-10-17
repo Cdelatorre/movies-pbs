@@ -1,11 +1,11 @@
 import c from "classnames";
-import "./index.scss";
 import { NavLink } from "react-router-dom";
+import "./index.scss";
 
 const GenreTab = ({
+  id,
   children,
   onDelete,
-  id,
 }: GenreTabComponentProps): JSX.Element => {
   const classNames = c(
     "genre-tab",
@@ -18,16 +18,16 @@ const GenreTab = ({
   if (onDelete)
     return (
       <div className={classNames} onClick={() => onDelete(id)}>
-        <div className="genre-delete">
+        <div data-testid={`genre-delete-${id}`} className="genre-delete">
           <i className="fas fa-times-circle"></i>
         </div>
-        <span>{children}</span>
+        <span data-testid={`genre-tab-${id}`}>{children}</span>
       </div>
     );
 
   return (
     <NavLink to={`/?genre=${id}`} className={classNames}>
-      <span>{children}</span>
+      <span data-testid={`genre-tab-${id}`}>{children}</span>
     </NavLink>
   );
 };

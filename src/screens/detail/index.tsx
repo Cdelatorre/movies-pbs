@@ -21,18 +21,26 @@ const Detail = () => {
   });
 
   return (
-    <div className="container">
+    <div data-testid="detail-component" className="container">
       <div className="row mt-5">
-        {movies.map((movie, i) => {
-          return (
-            <div
-              key={movie.id}
-              className="col-lg-3 col-md-6 col-sm-6 col-xs-12"
-            >
-              <MovieCard {...movie} />;
-            </div>
-          );
-        })}
+        {movies.length ? (
+          movies.map((movie, i) => {
+            return (
+              <div
+                key={movie.id}
+                className="col-lg-3 col-md-6 col-sm-6 col-xs-12"
+              >
+                <MovieCard {...movie} />;
+              </div>
+            );
+          })
+        ) : (
+          <div className="container">
+            <h4 className="text-light mb-5 p-5 border rounded border-light">
+              Vaya, no hemos encontrado películas...
+            </h4>
+          </div>
+        )}
       </div>
     </div>
   );
