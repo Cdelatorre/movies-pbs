@@ -1,6 +1,6 @@
 ### Movie App
 
-Movie app is a project made with** React** framework which represents a simple Movie App scheduler, where you can create, edit, and schedule by viewed/unviewed your favorite movies.
+Movie app is a project made with **React** framework which represents a simple Movie App scheduler, where you can create, edit, and schedule by viewed/unviewed your favorite movies.
 
 ### Images
 
@@ -8,19 +8,19 @@ Some images of desktop and mobile images
 
 ##### - Desktop version flow 1/2
 
-![Alt text](./public/img/desktop-1.gif "Desktop view 1")
+![Desktop view 1](./public/img/desktop-1.gif "Desktop view 1")
 
 ##### - Desktop version flow 2/2
 
-![Alt text](./public/img/desktop-2.gif "Desktop view 2")
+![Desktop view 2](./public/img/desktop-2.gif "Desktop view 2")
 
 ##### - Mobile version flow 1/2
 
-![Alt text](./public/img/mobile-1.gif "Desktop view 1")
+![Mobile view 1](./public/img/mobile-1.gif=250x "Mobile view 1")
 
 ##### - Mobile version flow 2/2
 
-![Alt text](./public/img/mobile-2.gif "Desktop view 2")
+![Mobile view 2](./public/img/mobile-2.gif=250x "Mobile view 2")
 
 ### Scripts
 
