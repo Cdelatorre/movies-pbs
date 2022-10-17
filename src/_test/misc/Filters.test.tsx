@@ -1,8 +1,8 @@
 import React from "react";
-import { fireEvent, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import { renderWithProviders } from "../utils/test-utils";
 import Filters from "../../components/misc/filters/index";
-import { customStoreData, sampleFiltersData } from "../utils/mocks/mock";
+import { sampleFiltersData } from "../utils/mocks/mock";
 
 describe("Renders Filters component correctly", () => {
   test("Renders Filters default component correctly", () => {
