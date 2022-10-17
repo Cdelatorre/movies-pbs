@@ -4,7 +4,7 @@ import type { RenderOptions } from "@testing-library/react";
 import type { PreloadedState } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import { AppStore, RootState, setupStore } from "../../store";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter, Router } from "react-router-dom";
 import { emptyStoreData } from "./mocks/mock";
 
 interface ExtendedRenderOptions extends Omit<RenderOptions, "queries"> {
@@ -26,17 +26,25 @@ export function renderWithProviders(
     if (route) window.history.pushState({}, "Test routing", route);
 
     return (
-      <Router>
+      <BrowserRouter>
         <Provider store={store}>{children}</Provider>;
-      </Router>
+      </BrowserRouter>
     );
   }
   return { store, ...render(ui, { wrapper: Wrapper, ...renderOptions }) };
 }
 
-export function renderWithRouter(ui: React.ReactElement) {
+export function renderWithRouter(ui: React.ReactElement, history?: any) {
   function Wrapper({ children }: PropsWithChildren<{}>): JSX.Element {
-    return <Router>{children}</Router>;
+    if (history) {
+      return (
+        <Router location="/" navigator={history}>
+          {children}
+        </Router>
+      );
+    } else {
+      return <BrowserRouter>{children}</BrowserRouter>;
+    }
   }
   return { ...render(ui, { wrapper: Wrapper }) };
 }

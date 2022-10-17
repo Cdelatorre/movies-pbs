@@ -37,7 +37,7 @@ const Input = React.forwardRef<HTMLInputElement, InputComponentProps>(
           <label
             htmlFor={id}
             className={`${
-              type === "checkbox" ? " d-inline ps-2 pe-3" : "form-label w-100"
+              type === "checkbox" ? "d-inline ps-2 pe-3" : "form-label w-100"
             } text-start text-light`}
           >
             {label}

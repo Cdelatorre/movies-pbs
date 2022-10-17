@@ -1,15 +1,7 @@
 import { fireEvent, screen } from "@testing-library/react";
-import { useDispatch } from "react-redux";
 import MovieForm from "../../components/movies/form";
 import { customStoreData } from "../utils/mocks/mock";
 import { renderWithProviders } from "../utils/test-utils";
-
-jest.mock("react-redux", () => ({
-  ...jest.requireActual("react-redux"),
-  useDispatch: jest.fn(),
-}));
-
-const useDispatchMock = useDispatch as jest.Mock;
 
 describe("Renders Movie form component correctly", () => {
   test("Renders default Movie form and each tag correctly", () => {
@@ -55,15 +47,15 @@ describe("Renders Movie form component correctly", () => {
   });
 
   test("Create movie in form calls redux dispatch", () => {
-    useDispatchMock.mockReturnValue(jest.fn());
-
     const customStore = customStoreData(true, false, false);
 
-    renderWithProviders(<MovieForm />, {
+    const { store } = renderWithProviders(<MovieForm />, {
       preloadedState: {
         ...customStore,
       },
     });
+
+    console.log(1, store.getState().movies.unViewedMovies);
 
     const titleInput = screen.getByTestId("input-text-title");
     const genreInput = screen.getByTestId("input-text-currentGenre");
@@ -81,6 +73,16 @@ describe("Renders Movie form component correctly", () => {
     /*----------------------*/
 
     fireEvent.click(submitButton);
-    expect(useDispatchMock).toHaveBeenCalled();
+    expect(screen.queryByDisplayValue("Genre")).toBeNull();
+    expect(screen.queryByDisplayValue("Movie mock title")).toBeNull();
+
+    expect(
+      store
+        .getState()
+        .movies.unViewedMovies.find(
+          (movie) =>
+            movie.title === "Movie mock title" && movie.genres.includes("Genre")
+        )
+    ).toBeTruthy();
   });
 });

@@ -16,7 +16,12 @@ describe("Renders Input component correctly", () => {
     expect(screen.getByDisplayValue("Movie mock title")).toBeInTheDocument();
   });
 
-  test("Input is modified it's default behavior by adding props", () => {
+  test("Input is modified it's default behavior by adding props and fires specific events", () => {
+    const onChange = jest.fn();
+    const onBlur = jest.fn();
+    const onFocus = jest.fn();
+    const onClick = jest.fn();
+
     renderWithProviders(
       <Input
         name="test-name"
@@ -24,6 +29,10 @@ describe("Renders Input component correctly", () => {
         type="number"
         value="1"
         error="test message error"
+        onChange={onChange}
+        onBlur={onBlur}
+        onFocus={onFocus}
+        onClick={onClick}
       />
     );
 
@@ -33,5 +42,16 @@ describe("Renders Input component correctly", () => {
     expect(screen.getByDisplayValue("1")).toBeInTheDocument();
     expect(screen.getByText("Label test")).toBeInTheDocument();
     expect(screen.getByText("test message error")).toBeInTheDocument();
+    expect(input).toHaveClass("form-number border-danger");
+
+    fireEvent.change(input, { target: { value: "Tests value" } });
+    fireEvent.click(input);
+    fireEvent.focus(input);
+    fireEvent.blur(input);
+
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onBlur).toHaveBeenCalledTimes(1);
+    expect(onFocus).toHaveBeenCalledTimes(1);
+    expect(onClick).toHaveBeenCalledTimes(1);
   });
 });

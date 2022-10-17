@@ -37,7 +37,6 @@ const MovieForm = () => {
       document.activeElement === ref.current &&
       key === INTRO_KEYCODE
     ) {
-      console.log("entro");
       if (genreAlreadyIncluded()) {
         setForm({
           ...formState,

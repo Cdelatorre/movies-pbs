@@ -31,4 +31,5 @@ export const filtersSlice = createSlice({
 });
 
 export const { toggleFilter, resetFilters, setSearch } = filtersSlice.actions;
+
 export default filtersSlice.reducer;

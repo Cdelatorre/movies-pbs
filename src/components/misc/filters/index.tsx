@@ -16,7 +16,6 @@ const Filters = ({
   const dispatch = useDispatch();
 
   const handleReset = () => {
-    console.log("entro");
     dispatch(setSearch(""));
     dispatch(resetFilters());
   };
