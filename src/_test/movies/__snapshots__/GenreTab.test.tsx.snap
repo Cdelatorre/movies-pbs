@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders GenreTab component correctly Renders default GenreTab component correctly 1`] = `
+<span
+  data-testid="genre-tab-Genre"
+>
+  Genre
+</span>
+`;

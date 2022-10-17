@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders Navbar component correctly Renders Navbar default component correctly 1`] = `
+<nav
+  class="navbar bg-dark text-light"
+  data-testid="navbar-component"
+  style="height: 60px;"
+>
+  <div
+    class="container h-100 d-flex align-items-center"
+  >
+    <a
+      aria-current="page"
+      class="text-light me-5 active"
+      href="/"
+    >
+      <i
+        class="fas fa-home"
+        style="font-size: 24px;"
+      />
+    </a>
+    <div
+      class="w-100 d-flex align-items-center justify-content-end"
+    >
+      <a
+        aria-current="page"
+        class="text-light me-3 ms-5 active"
+        href="/?genre=horror"
+      >
+        Horror
+      </a>
+      <a
+        aria-current="page"
+        class="text-light me-3 active"
+        href="/?genre=romance"
+      >
+        Romance
+      </a>
+      <a
+        aria-current="page"
+        class="text-light me-3 active"
+        href="/?genre=comedy"
+      >
+        Comedy
+      </a>
+    </div>
+  </div>
+</nav>
+`;

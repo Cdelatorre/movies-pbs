@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders SearchBar component correctly Renders SearchBar default component correctly 1`] = `
+<div
+  class="search-bar mb-5 mt-4 w-100 d-flex"
+  data-testid="search-bar"
+>
+  <div
+    class="input "
+  >
+    <input
+      class="form-control form-text bg-dark text-light w-100"
+      data-testid="input-text-search"
+      name="search"
+      placeholder="Search movie"
+      type="text"
+      value=""
+    />
+  </div>
+  <button
+    class="btn btn-success ms-3"
+    data-testid="test-search-btn"
+    id="search-btn"
+  >
+    Search
+  </button>
+</div>
+`;

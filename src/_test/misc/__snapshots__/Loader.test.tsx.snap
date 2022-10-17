@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders Loader component correctly Renders Loader default component correctly 1`] = `
+<div
+  data-testid="loader"
+  id="loader"
+>
+  <div
+    class="loading"
+  >
+    Loading...
+  </div>
+</div>
+`;

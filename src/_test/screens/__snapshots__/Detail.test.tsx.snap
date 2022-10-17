@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders Detail page correctly with empty list on movies store data Renders correctly 1`] = `
+<div
+  class="container"
+  data-testid="detail-component"
+>
+  <div
+    class="row mt-5"
+  >
+    <div
+      class="container"
+    >
+      <h4
+        class="text-light mb-5 p-5 border rounded border-light"
+      >
+        Vaya, no hemos encontrado películas...
+      </h4>
+    </div>
+  </div>
+</div>
+`;

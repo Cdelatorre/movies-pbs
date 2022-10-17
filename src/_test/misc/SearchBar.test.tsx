@@ -7,13 +7,16 @@ describe("Renders SearchBar component correctly", () => {
   test("Renders SearchBar default component correctly", () => {
     renderWithProviders(<SearchBar />);
 
+    const searchBar = screen.getByTestId("search-bar");
     const input = screen.getByTestId("input-text-search");
     const searchBtn = screen.getByTestId("test-search-btn");
 
     expect(screen.queryByPlaceholderText("Search movie")).toBe(input);
-    expect(screen.getByTestId("search-bar")).toBeInTheDocument();
+    expect(searchBar).toBeInTheDocument();
     expect(input).toBeInTheDocument();
     expect(searchBtn).toBeInTheDocument();
+
+    expect(searchBar).toMatchSnapshot();
   });
 
   test("Fires action when input is filled and search button clicked", () => {

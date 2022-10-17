@@ -13,9 +13,15 @@ describe("Renders Home page correctly", () => {
   test("Renders Each component correctly", () => {
     renderWithProviders(<Home />);
 
-    expect(screen.getByTestId("form-component")).toBeInTheDocument();
-    expect(screen.getByTestId("filters-component")).toBeInTheDocument();
-    expect(screen.getByTestId("movies-list")).toBeInTheDocument();
+    const homeScreen = screen.getByTestId("home-component");
+    const form = screen.getByTestId("form-component");
+    const filters = screen.getByTestId("filters-component");
+    const movies = screen.getByTestId("movies-list");
+
+    expect(homeScreen).toBeInTheDocument();
+    expect(form).toBeInTheDocument();
+    expect(filters).toBeInTheDocument();
+    expect(movies).toBeInTheDocument();
 
     expect(
       screen.getByRole("checkbox", { name: "Horror" })
@@ -28,6 +34,8 @@ describe("Renders Home page correctly", () => {
         name: "Vaya, no hemos encontrado películas...",
       })
     ).toBeInTheDocument();
+
+    expect(homeScreen).toMatchSnapshot();
   });
 
   test("Renders Movie component for each card", () => {

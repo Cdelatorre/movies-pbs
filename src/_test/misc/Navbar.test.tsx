@@ -28,6 +28,8 @@ describe("Renders Navbar component correctly", () => {
     expect(links[3].href).toContain(
       `${process.env.REACT_APP_DEV_URL}/?genre=comedy`
     );
+
+    expect(navbar).toMatchSnapshot();
   });
 
   test("Add history url", () => {

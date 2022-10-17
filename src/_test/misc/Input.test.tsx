@@ -14,6 +14,8 @@ describe("Renders Input component correctly", () => {
       target: { value: "Movie mock title" },
     });
     expect(screen.getByDisplayValue("Movie mock title")).toBeInTheDocument();
+
+    expect(input).toMatchSnapshot();
   });
 
   test("Input is modified it's default behavior by adding props and fires specific events", () => {

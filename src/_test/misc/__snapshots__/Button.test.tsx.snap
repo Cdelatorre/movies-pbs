@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders Button component correctly Renders default Button component correctly 1`] = `
+<button
+  class="btn btn-primary"
+  data-testid="test-btn-id"
+  id="btn-id"
+>
+  Mock test
+</button>
+`;

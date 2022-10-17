@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders Movie form component correctly Renders default Movie form and each tag correctly 1`] = `
+<div
+  class="movie-form-container mt-3"
+  data-testid="form-component"
+>
+  <h2
+    class="movie-form-title mt-0"
+  >
+    Create your movie
+  </h2>
+  <form
+    class="movie-form"
+    data-testid="movie-form"
+  >
+    <div
+      class="input "
+    >
+      <label
+        class="form-label w-100 text-start text-light"
+        for="title-input"
+      >
+        Title
+      </label>
+      <input
+        class="form-control form-text bg-dark text-light"
+        data-testid="input-text-title"
+        id="title-input"
+        name="title"
+        placeholder="Write down a title for your movie"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="genders d-flex mb-3 mt-3"
+    />
+    <div
+      class="input "
+    >
+      <label
+        class="form-label w-100 text-start text-light"
+        for="title-input"
+      >
+        Genres
+      </label>
+      <input
+        class="form-control form-text bg-dark text-light"
+        data-testid="input-text-currentGenre"
+        id="title-input"
+        name="currentGenre"
+        placeholder="Write down some movie genres"
+        type="text"
+        value=""
+      />
+    </div>
+  </form>
+  <div
+    class="mt-4"
+  >
+    <button
+      class="btn btn-success w-100 mt-3"
+      data-testid="test-submit-form-btn"
+      id="submit-form-btn"
+    >
+      Create
+    </button>
+  </div>
+</div>
+`;

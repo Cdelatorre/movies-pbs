@@ -7,7 +7,8 @@ describe("Renders MovieCard component correctly", () => {
   test("Renders default MovieCard and each component correctly", () => {
     renderWithProviders(<MovieCard {...movie} />);
 
-    expect(screen.getByTestId(`movie-card-${movie.id}`)).toBeInTheDocument();
+    const movieCard = screen.getByTestId(`movie-card-${movie.id}`);
+    expect(movieCard).toBeInTheDocument();
     expect(
       screen.getByRole("heading", {
         name: movie.title,
@@ -16,6 +17,8 @@ describe("Renders MovieCard component correctly", () => {
     movie.genres.forEach((genre) => {
       expect(screen.getByTestId(`genre-tab-${genre}`)).toBeInTheDocument();
     });
+
+    expect(movieCard).toMatchSnapshot();
   });
 
   test("Renders viewed state if movie has viewed prop as true", async () => {

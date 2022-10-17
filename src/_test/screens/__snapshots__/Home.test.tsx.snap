@@ -1,0 +1,216 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders Home page correctly Renders Each component correctly 1`] = `
+<div
+  data-testid="home-component"
+>
+  <div
+    class="mt-5"
+  >
+    <div
+      class="container d-flex justify-content-center"
+    >
+      <div
+        class="movie-form-container mt-3"
+        data-testid="form-component"
+      >
+        <h2
+          class="movie-form-title mt-0"
+        >
+          Create your movie
+        </h2>
+        <form
+          class="movie-form"
+          data-testid="movie-form"
+        >
+          <div
+            class="input "
+          >
+            <label
+              class="form-label w-100 text-start text-light"
+              for="title-input"
+            >
+              Title
+            </label>
+            <input
+              class="form-control form-text bg-dark text-light"
+              data-testid="input-text-title"
+              id="title-input"
+              name="title"
+              placeholder="Write down a title for your movie"
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            class="genders d-flex mb-3 mt-3"
+          />
+          <div
+            class="input "
+          >
+            <label
+              class="form-label w-100 text-start text-light"
+              for="title-input"
+            >
+              Genres
+            </label>
+            <input
+              class="form-control form-text bg-dark text-light"
+              data-testid="input-text-currentGenre"
+              id="title-input"
+              name="currentGenre"
+              placeholder="Write down some movie genres"
+              type="text"
+              value=""
+            />
+          </div>
+        </form>
+        <div
+          class="mt-4"
+        >
+          <button
+            class="btn btn-success w-100 mt-3"
+            data-testid="test-submit-form-btn"
+            id="submit-form-btn"
+          >
+            Create
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="container"
+    >
+      <div
+        class="filters-container d-flex flex-column align-items-start"
+        data-testid="filters-component"
+      >
+        <h2
+          class="text-light text-start mb-4"
+        >
+          Find your movie!
+        </h2>
+        <div
+          class="sub-decoration"
+        />
+        <div
+          class="d-flex flex-wrap"
+        >
+          <div
+            class="d-flex text-light flex-row flex-wrap w-100"
+          >
+            <div
+              class="input form-check"
+            >
+              <label
+                class="d-inline ps-2 pe-3 text-start text-light"
+                for="Horror"
+              >
+                Horror
+              </label>
+              <input
+                class="form-control form-checkbox bg-dark text-light"
+                data-testid="input-checkbox-Horror"
+                id="Horror"
+                name="Horror"
+                readonly=""
+                type="checkbox"
+                value="Horror"
+              />
+            </div>
+            <div
+              class="input form-check"
+            >
+              <label
+                class="d-inline ps-2 pe-3 text-start text-light"
+                for="Romance"
+              >
+                Romance
+              </label>
+              <input
+                class="form-control form-checkbox bg-dark text-light"
+                data-testid="input-checkbox-Romance"
+                id="Romance"
+                name="Romance"
+                readonly=""
+                type="checkbox"
+                value="Romance"
+              />
+            </div>
+            <div
+              class="input form-check"
+            >
+              <label
+                class="d-inline ps-2 pe-3 text-start text-light"
+                for="Comedy"
+              >
+                Comedy
+              </label>
+              <input
+                class="form-control form-checkbox bg-dark text-light"
+                data-testid="input-checkbox-Comedy"
+                id="Comedy"
+                name="Comedy"
+                readonly=""
+                type="checkbox"
+                value="Comedy"
+              />
+            </div>
+            <button
+              class="btn btn-primary"
+              data-testid="test-reset-filters-btn"
+              id="reset-filters-btn"
+            >
+              <i
+                class="fas fa-sync-alt"
+              />
+            </button>
+          </div>
+        </div>
+        <div
+          class="search-bar mb-5 mt-4 w-100 d-flex"
+          data-testid="search-bar"
+        >
+          <div
+            class="input "
+          >
+            <input
+              class="form-control form-text bg-dark text-light w-100"
+              data-testid="input-text-search"
+              name="search"
+              placeholder="Search movie"
+              type="text"
+              value=""
+            />
+          </div>
+          <button
+            class="btn btn-success ms-3"
+            data-testid="test-search-btn"
+            id="search-btn"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="container movie-list"
+      data-testid="movies-list"
+    >
+      <div
+        class="row mb-5"
+      >
+        <div
+          class="container"
+        >
+          <h4
+            class="text-light mb-5 p-5 border rounded border-light"
+          >
+            Vaya, no hemos encontrado películas...
+          </h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

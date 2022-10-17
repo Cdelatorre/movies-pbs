@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders MovieCard component correctly Renders default MovieCard and each component correctly 1`] = `
+<div
+  class="movie-card card border-2 border-dark unViewed-card"
+  data-testid="movie-card-1"
+  id="1"
+>
+  <div
+    class="card-img-top-container"
+  >
+    <div
+      class="card-img-custom"
+      style="background-image: url(https://picsum.photos/id/149/300/400);"
+    />
+    <div
+      class="action-card-btn bg-dark viewed text-primary"
+      data-testid="toggle-viewed-btn-1"
+    >
+      <i
+        class="far fa-eye-slash text-warning"
+      />
+    </div>
+    <div
+      class="action-card-btn bg-dark delete text-danger"
+      data-testid="delete-movie-btn-1"
+    >
+      <i
+        class="far fa-trash-alt"
+      />
+    </div>
+    <div
+      class="action-card-btn bg-dark edit text-secondary"
+      data-testid="edit-movie-btn-1"
+    >
+      <i
+        class="far fa-edit"
+      />
+    </div>
+  </div>
+  <div
+    class="card-body bg-dark text-light pt-4"
+  >
+    <h3
+      class="card-title text-start mt-2"
+    >
+      Movie 1
+    </h3>
+    <p
+      class="card-description text-start"
+    >
+      Some quick example text to build on the card title and make up thebulk of the card's content.
+    </p>
+    <div
+      class="genres d-flex"
+    >
+      <a
+        aria-current="page"
+        class="genre-tab border border-info text-light active"
+        href="/?genre=Horror"
+      >
+        <span
+          data-testid="genre-tab-Horror"
+        >
+          Horror
+        </span>
+      </a>
+      <a
+        aria-current="page"
+        class="genre-tab border border-info text-light active"
+        href="/?genre=Comedy"
+      >
+        <span
+          data-testid="genre-tab-Comedy"
+        >
+          Comedy
+        </span>
+      </a>
+      <a
+        aria-current="page"
+        class="genre-tab border border-info text-light active"
+        href="/?genre=Romance"
+      >
+        <span
+          data-testid="genre-tab-Romance"
+        >
+          Romance
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
+`;

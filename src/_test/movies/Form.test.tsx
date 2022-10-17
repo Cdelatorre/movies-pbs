@@ -6,12 +6,16 @@ import { renderWithProviders } from "../utils/test-utils";
 describe("Renders Movie form component correctly", () => {
   test("Renders default Movie form and each tag correctly", () => {
     renderWithProviders(<MovieForm />);
+
+    const form = screen.getByTestId("form-component");
     const titleInput = screen.getByTestId("input-text-title");
     const genreInput = screen.getByTestId("input-text-currentGenre");
 
-    expect(screen.getByTestId("form-component")).toBeInTheDocument();
+    expect(form).toBeInTheDocument();
     expect(titleInput).toBeInTheDocument();
     expect(genreInput).toBeInTheDocument();
+
+    expect(form).toMatchSnapshot();
   });
 
   test("Fills inputs correctly on user input interaction", () => {
@@ -54,8 +58,6 @@ describe("Renders Movie form component correctly", () => {
         ...customStore,
       },
     });
-
-    console.log(1, store.getState().movies.unViewedMovies);
 
     const titleInput = screen.getByTestId("input-text-title");
     const genreInput = screen.getByTestId("input-text-currentGenre");

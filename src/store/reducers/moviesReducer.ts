@@ -15,7 +15,6 @@ export const movieSlice = createSlice({
   initialState,
   reducers: {
     addMovie: (state, action: PayloadAction<Movie>) => {
-      console.log("ENTROO");
       const newMovie = {
         ...action.payload,
         createdAt: new Date(),

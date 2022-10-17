@@ -7,12 +7,16 @@ describe("Renders Detail page correctly with empty list on movies store data", (
   test("Renders correctly", async () => {
     renderWithProviders(<Detail />, {}, "/detail");
 
-    expect(screen.getByTestId("detail-component")).toBeInTheDocument();
+    const detailScreen = screen.getByTestId("detail-component");
+
+    expect(detailScreen).toBeInTheDocument();
     expect(
       screen.getByRole("heading", {
         name: "Vaya, no hemos encontrado películas...",
       })
     ).toBeInTheDocument();
+
+    expect(detailScreen).toMatchSnapshot();
   });
 
   test("Renders only movies with genre included on query parameter 'genre'", async () => {

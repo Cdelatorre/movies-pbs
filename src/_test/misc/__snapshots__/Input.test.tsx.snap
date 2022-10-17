@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders Input component correctly Renders Input default component correctly 1`] = `
+<input
+  class="form-control form-text bg-dark text-light"
+  data-testid="input-text-test-name"
+  name="test-name"
+  type="text"
+  value=""
+/>
+`;

@@ -6,8 +6,12 @@ describe("Renders GenreTab component correctly", () => {
   test("Renders default GenreTab component correctly", () => {
     renderWithRouter(<GenreTab id="Genre">Genre</GenreTab>);
 
-    expect(screen.getByTestId("genre-tab-Genre")).toBeInTheDocument();
+    const genreTab = screen.getByTestId("genre-tab-Genre");
+
+    expect(genreTab).toBeInTheDocument();
     expect(screen.getByText("Genre")).toBeInTheDocument();
+
+    expect(genreTab).toMatchSnapshot();
   });
 
   test("Renders delete action button and calls onDelete function when clicked", () => {

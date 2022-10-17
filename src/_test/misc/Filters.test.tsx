@@ -9,14 +9,17 @@ describe("Renders Filters component correctly", () => {
     renderWithProviders(
       <Filters filters={sampleFiltersData} activeFilters={[]} />
     );
+    const filters = screen.getByTestId("filters-component");
 
-    expect(screen.getByTestId("filters-component")).toBeInTheDocument();
+    expect(filters).toBeInTheDocument();
     sampleFiltersData.forEach((genre) => {
       expect(screen.getByTestId(`input-checkbox-${genre}`)).toBeInTheDocument();
     });
     expect(screen.getByTestId("test-search-btn")).toBeInTheDocument();
     expect(screen.getByTestId("test-reset-filters-btn")).toBeInTheDocument();
     expect(screen.getByTestId("search-bar")).toBeInTheDocument();
+
+    expect(filters).toMatchSnapshot();
   });
 
   test("Inputs are checked if filters includes some activeFilters", () => {

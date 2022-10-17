@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders Filters component correctly Renders Filters default component correctly 1`] = `
+<div
+  class="filters-container d-flex flex-column align-items-start"
+  data-testid="filters-component"
+>
+  <h2
+    class="text-light text-start mb-4"
+  >
+    Find your movie!
+  </h2>
+  <div
+    class="sub-decoration"
+  />
+  <div
+    class="d-flex flex-wrap"
+  >
+    <div
+      class="d-flex text-light flex-row flex-wrap w-100"
+    >
+      <div
+        class="input form-check"
+      >
+        <label
+          class="d-inline ps-2 pe-3 text-start text-light"
+          for="Horror"
+        >
+          Horror
+        </label>
+        <input
+          class="form-control form-checkbox bg-dark text-light"
+          data-testid="input-checkbox-Horror"
+          id="Horror"
+          name="Horror"
+          readonly=""
+          type="checkbox"
+          value="Horror"
+        />
+      </div>
+      <div
+        class="input form-check"
+      >
+        <label
+          class="d-inline ps-2 pe-3 text-start text-light"
+          for="Comedy"
+        >
+          Comedy
+        </label>
+        <input
+          class="form-control form-checkbox bg-dark text-light"
+          data-testid="input-checkbox-Comedy"
+          id="Comedy"
+          name="Comedy"
+          readonly=""
+          type="checkbox"
+          value="Comedy"
+        />
+      </div>
+      <div
+        class="input form-check"
+      >
+        <label
+          class="d-inline ps-2 pe-3 text-start text-light"
+          for="Romance"
+        >
+          Romance
+        </label>
+        <input
+          class="form-control form-checkbox bg-dark text-light"
+          data-testid="input-checkbox-Romance"
+          id="Romance"
+          name="Romance"
+          readonly=""
+          type="checkbox"
+          value="Romance"
+        />
+      </div>
+      <button
+        class="btn btn-primary"
+        data-testid="test-reset-filters-btn"
+        id="reset-filters-btn"
+      >
+        <i
+          class="fas fa-sync-alt"
+        />
+      </button>
+    </div>
+  </div>
+  <div
+    class="search-bar mb-5 mt-4 w-100 d-flex"
+    data-testid="search-bar"
+  >
+    <div
+      class="input "
+    >
+      <input
+        class="form-control form-text bg-dark text-light w-100"
+        data-testid="input-text-search"
+        name="search"
+        placeholder="Search movie"
+        type="text"
+        value=""
+      />
+    </div>
+    <button
+      class="btn btn-success ms-3"
+      data-testid="test-search-btn"
+      id="search-btn"
+    >
+      Search
+    </button>
+  </div>
+</div>
+`;

@@ -17,6 +17,8 @@ describe("Renders Button component correctly", () => {
     expect(buttonElement).toBeInTheDocument();
     expect(screen.getByText("Mock test")).toBeInTheDocument();
     expect(buttonElement).toHaveClass("btn btn-primary");
+
+    expect(buttonElement).toMatchSnapshot();
   });
 
   test("Renders success button type if btnType prop is passed", async () => {

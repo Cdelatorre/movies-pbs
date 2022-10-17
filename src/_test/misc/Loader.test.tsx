@@ -10,5 +10,7 @@ describe("Renders Loader component correctly", () => {
 
     expect(containerLoader).toBeInTheDocument();
     expect(loader).toBeInTheDocument();
+
+    expect(containerLoader).toMatchSnapshot();
   });
 });
