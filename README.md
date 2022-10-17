@@ -159,11 +159,11 @@ This project was created with **create-react-app** template, based on the follow
 - Navbar with routes to "/detail?genre=GENRE"
 - Movie card that shows:
 
-  i. Checkbox that shows if movie is watched or not.
-  ii. Movie name.
-  iii. Genres. Onclick in every genre tab goes to "/detail?genre=GENRE"
-  iv. Delete button.
-  v. Action buttons -> viewed state | delete movie | edit title.
+  - i. Checkbox that shows if movie is watched or not.
+  - ii. Movie name.
+  - iii. Genres. Onclick in every genre tab goes to "/detail?genre=GENRE"
+  - iv. Delete button.
+  - v. Action buttons -> viewed state | delete movie | edit title.
   
 - Filters checkboxes with Horror, Romance, Comedy and a reset button.
 - Searchbar as an input above the list and below the radio buttons where user can search the
