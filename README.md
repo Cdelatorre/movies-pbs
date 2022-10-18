@@ -155,7 +155,7 @@ This project was created with **create-react-app** template, based on the follow
 #### Components and structure
 
 - Redux to implement state handling.
-- Form with title and genres input yo create new movie.
+- Form with title and genres input yo create new movie - includes validation.
 - Navbar with routes to "/detail?genre=GENRE"
 - Movie card that shows:
 
