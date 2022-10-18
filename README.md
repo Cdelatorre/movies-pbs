@@ -1,6 +1,6 @@
 ### Movie App
 
-Movie app is a project made with **React** framework which represents a simple Movie App scheduler, where you can create, edit, and schedule by viewed/unviewed your favorite movies.
+Movie app is a project made with **React** library which represents a simple Movie App scheduler, where you can create, edit, and schedule by viewed/unviewed your favorite movies.
 
 ### Images
 
